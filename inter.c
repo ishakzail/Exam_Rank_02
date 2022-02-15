@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include <stdlib.h>
 
 int check(char *s, char c, int pos)
 {
