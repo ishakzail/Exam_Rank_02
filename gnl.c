@@ -32,19 +32,20 @@ char    *ft_strdup(char *str)
     return (tmp);
 }
 
-char *get_next_line(int fd)
+char    *get_next_line(int fd)
 {
-    if (fd < 0)
-        return (NULL);
-    char buff[1];
-    char line[1000000];
+    int     n;
+    char    buff[1];
+    char    line[1000000];
+    int     i;
+
     line[0] = 0;
-    int i = 0;
-    int n;
-    while ((n = read(fd, buff, 1)) && (n > 0))
+    i = 0;
+    if ( fd < 0)
+        return (NULL);
+    while ((n = read(fd,buff,1)) && (n > 0))
     {
         line[i++] = buff[0];
-        printf("line[i++] == %c\n",line[i]);
         line[i] = '\0';
         if (buff[0] == '\n')
             return (ft_strdup(line));
